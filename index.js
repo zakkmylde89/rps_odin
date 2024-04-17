@@ -5,8 +5,36 @@ function getComputerChoice(){
     return choice;
 }
 
-function playRound(playerSelection, computerSelection) {
-    
+function checkWinner(playerSelection, computerSelection){
+    if (playerSelection == computerSelection) {
+        return "Tie";
+    }
+    else if (
+        (playerSelection == "rock" && computerSelection == "scissors" ||
+        playerSelection == "scissors" && computerSelection == "paper" ||
+        playerSelection == "paper" && computerSelection == "rock")
+    ) {
+        return "Player"
+    }
+    else {
+        return "Computer"
+    }
 }
 
-getComputerChoice();
+function playRound(playerSelection, computerSelection){
+    const result = checkWinner(playerSelection, computerSelection);
+    if (result == "Tie") {
+        return "It's a tie"
+    }
+    else if (result == "Player") {
+        return "You Win"
+    }
+    else {
+        return "You Lose"
+    }
+}
+
+const playerSelection = "Rock"
+const computerSelection = getComputerChoice();
+
+console.log(playRound);
